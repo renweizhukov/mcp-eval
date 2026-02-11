@@ -48,19 +48,19 @@ export default function Layout({ children }: LayoutProps) {
 
           {/* Navigation Links */}
           <nav className="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
-            {navigation.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <a
-                  className={`block px-3 py-2.5 text-sm rounded transition-colors ${
-                    isActive(item.href)
-                      ? "bg-primary text-primary-foreground font-medium"
-                      : "text-foreground hover:bg-secondary hover:text-secondary-foreground"
-                  }`}
-                >
-                  {item.name}
-                </a>
-              </Link>
-            ))}
+          {navigation.map((item) => (
+            <Link key={item.href} href={item.href}>
+              <span
+                className={`block px-3 py-2.5 text-sm rounded transition-colors ${
+                  isActive(item.href)
+                    ? "bg-primary text-primary-foreground font-medium"
+                    : "text-foreground hover:bg-secondary hover:text-secondary-foreground"
+                }`}
+              >
+                {item.name}
+              </span>
+            </Link>
+          ))}
           </nav>
 
           {/* Footer */}
@@ -90,20 +90,20 @@ export default function Layout({ children }: LayoutProps) {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <nav className="px-4 py-4 space-y-1 border-t border-border">
-            {navigation.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <a
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2.5 text-sm rounded transition-colors ${
-                    isActive(item.href)
-                      ? "bg-primary text-primary-foreground font-medium"
-                      : "text-foreground hover:bg-secondary"
-                  }`}
-                >
-                  {item.name}
-                </a>
-              </Link>
-            ))}
+          {navigation.map((item) => (
+            <Link key={item.href} href={item.href}>
+              <span
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3 py-2.5 text-sm rounded transition-colors ${
+                  isActive(item.href)
+                    ? "bg-primary text-primary-foreground font-medium"
+                    : "text-foreground hover:bg-secondary"
+                }`}
+              >
+                {item.name}
+              </span>
+            </Link>
+          ))}
           </nav>
         )}
       </div>
