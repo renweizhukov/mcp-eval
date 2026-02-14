@@ -152,9 +152,9 @@ function vitePluginManusDebugCollector(): Plugin {
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins,
-  base: process.env.NODE_ENV === "production" ? "/mcp-eval/" : "/",
+  base: mode === "production" ? "/mcp-eval/" : "/",
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -186,4 +186,4 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-});
+}));
